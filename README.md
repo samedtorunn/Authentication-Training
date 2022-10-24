@@ -1,4 +1,4 @@
-# Authentication-Training
+# Authentication-Training 🔐
 
 There will be commits for 6 levels of authentication in this repository.
 
