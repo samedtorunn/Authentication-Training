@@ -22,3 +22,6 @@ There will be commits for 6 levels of authentication in this repository.
 * 10 salt rounds are used for this example.
 
 ---
+
+**Level 5** - Sessions + Cookies
+* **passport packages** are installed for this part.
