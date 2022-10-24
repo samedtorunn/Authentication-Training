@@ -13,6 +13,9 @@ There will be commits for 6 levels of authentication in this repository.
 ---
 
 **Level 3** - Hashing
-* md5 package is installed for better encryption. (hash encryption)
+* **md5** package is installed for better encryption. (hash encryption)
 
 ---
+
+**Level 4** Salting and Hashing the Passwords
+* **brcypt** package is installed for better protection.
