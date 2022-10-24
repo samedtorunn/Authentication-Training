@@ -18,6 +18,7 @@ There will be commits for 6 levels of authentication in this repository.
 ---
 
 **Level 4** - Salting and Hashing the Passwords
-* **brcypt package** is installed for better protection.
+* **brcypt package** is installed for better protection. 
+* 10 salt rounds are used for in this example.
 
 ---
