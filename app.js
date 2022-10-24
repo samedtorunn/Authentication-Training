@@ -1,10 +1,11 @@
 //jshint esversion:6
-
+require("dotenv").config() // --> It is very important to use this code as early as possible in your codes.
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require('mongoose');
-const encrypt = require("mongoose-encryption");
+const md5 = require("md5");
+
 
 const app = express();
 
@@ -25,10 +26,9 @@ const userSchema = new mongoose.Schema({
   password: String
 });
 
-const secret = "Thisisourlittlesecret.";
-userSchema.plugin(encrypt, {secret: secret, encryptedFields: ["password"]});
-
 const User = new mongoose.model("User", userSchema);
+
+///// GET METHODS ____________________________________________
 
 app.get("/", function(req, res) {
   res.render("home");
@@ -49,11 +49,12 @@ app.get("/secrets", function(req, res) {
   res.render("secrets");
 });
 
+////// POST METHODS
 
 app.post("/register", function(req, res) {
   const newUser = new User({
     email: req.body.username,
-    password: req.body.password
+    password: md5(req.body.password) // we hashed the password while registering.
   });
   newUser.save(function(err) {
     if (!err) {
@@ -64,10 +65,9 @@ app.post("/register", function(req, res) {
   });
 });
 
-
 app.post("/login", function(req, res) {
   const userName = req.body.username;
-  const passWord = req.body.password;
+  const passWord = md5(req.body.password); // we hashed the password input here too, and will compare the registered and login hashes.
 
   User.findOne({email: userName}, function(err, foundOne) {
     if (foundOne) {
@@ -82,8 +82,7 @@ app.post("/login", function(req, res) {
   });
 });
 
-
-
+////// SERVER START - LISTEN METHOD
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
