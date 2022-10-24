@@ -24,4 +24,4 @@ There will be commits for 6 levels of authentication in this repository.
 ---
 
 **Level 5** - Sessions + Cookies
-* **passport packages** are installed for this part.
+* **passport, passport-local, passport-local-mongoose, express-session packages** are installed for this part.
