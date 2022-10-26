@@ -28,3 +28,5 @@ There will be commits for 6 levels of authentication in this repository.
 * Worked on cookies, sessions & logout with passport.
 
 ---
+**Level 6** - OAuth
+* Worked on OAuth.
